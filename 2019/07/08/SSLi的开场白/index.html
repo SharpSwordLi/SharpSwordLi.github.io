@@ -2,11 +2,6 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
 
-    <!--[if lt IE 9]>
-        <style>body {display: none; background: none !important} </style>
-        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
-    <![endif]-->
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,7 +18,7 @@
 <meta property="og:site_name" content="欢迎来到我的博客">
 <meta property="og:description" content="该博客仅为记录一个小白程序员的成长历程">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-09T01:33:34.731Z">
+<meta property="og:updated_time" content="2019-07-10T05:45:49.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSLi的开场白">
 <meta name="twitter:description" content="该博客仅为记录一个小白程序员的成长历程">
@@ -74,7 +69,7 @@
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
-        search: 
+        search: false
     }
 </script>
 
@@ -204,7 +199,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">一个妄想成为大佬的小白程序员</div>
+                    <div id="js-aboutme">一个妄想成为大佬的小白java程序猿</div>
                 </section>
                 
             </div>
@@ -294,7 +289,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>作为一个码农，天天接近15，6个小时坐在电脑前，与互联网打交道，我感觉应该在互联网找个安身之处。<br>这篇博文，也是我正式找到了，这个地方。在我写这篇文章时，它一无所有。也希望今后我会好好的善待它。<br>本博客为静态博客，也主要是为了我总结学习历程，踩坑实录，游戏经历等(最为一个游戏爱好者的操守)。以及督促以及养成总结，归纳的能力，最重要还有写文章的能力(正在博文写的我现在终于体会到了什么是书到用时方恨少)。<br>声明:该博客完全搬用hexo博客框架，以及。。。大佬，的。。。主题。作为后端工程师，前端没太多时间去研究(虽然现在后端我也是小白中的小白)，在这里诚挚感谢。</p>
+        <blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;作为一个码农，天天接近15，6个小时坐在电脑前，与互联网打交道，我感觉应该在互联网找个安身之处。<br>&nbsp;&nbsp;&nbsp;&nbsp;在我写这篇文章时，它一无所有。也希望今后我会好好的善待它。  </p>
+</blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;本博客为静态博客，也主要是为了我总结学习历程，踩坑实录，游戏经历等(最为一个游戏爱好者的操守)。以及督促以及养成总结，归纳的能力，最重要还有写文章的能力(正在博文写的我现在终于体会到了什么是书到用时方恨少)。  </p>
+</blockquote>
+<blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;声明:该博客完全搬用hexo博客框架，以及 MOxFIVE 大佬，的 Yelee主题。作为后端工程师，前端没太多时间去研究(虽然现在后端我也是小白中的小白)，在这里诚挚感谢。</p>
+</blockquote>
 
       
     </div>
@@ -302,21 +305,6 @@
   </div>
   
     
-    <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/07/08/SSLi的开场白/">SSLi的开场白</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">SharpSwordLi</a></p>
-        <p><span>发布时间:</span>2019-07-08, 14:51:23</p>
-        <p><span>最后更新:</span>2019-07-09, 09:33:34</p>
-        <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/07/08/SSLi的开场白/" title="SSLi的开场白">http://wwww.fbxblog.xyz/2019/07/08/SSLi的开场白/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://wwww.fbxblog.xyz/2019/07/08/SSLi的开场白/　　作者: SharpSwordLi" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-            <script> var clipboard = new Clipboard('.copy-path'); </script>
-        </p>
-        <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-        </p>
-    </div>
-
 
 
     <nav id="article-nav">
@@ -495,6 +483,23 @@
         }
     
 </script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
