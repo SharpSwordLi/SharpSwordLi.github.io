@@ -245,7 +245,16 @@
 
 <script>
 // Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+$(function(){
+    bgChange();
+})
+var bgNum = 0;
+function bgChange(){   
+    bgNum++;
+    if(bgNum>2){bgNum=1};
+    setTimeout("bgChange()",10000);
+    $('.bg-cover').css('background-image', 'url(/medias/banner/' + bgNum + '.jpg)')
+};
 </script>
 
 <main class="content">
@@ -270,19 +279,19 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </a>
                 
                 
-                <a href="/tags/JAVA/" title="JAVA: 1">
+                <a href="/tags/JAVA编程/" title="JAVA编程: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="JAVA" style="background-color: #F5EEF8;">JAVA
+                            data-tagname="JAVA编程" style="background-color: #F5EEF8;">JAVA编程
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Spring，编程/" title="Spring，编程: 1">
+                <a href="/tags/Spring/" title="Spring: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Spring，编程" style="background-color: #D5F5E3;">Spring，编程
+                            data-tagname="Spring" style="background-color: #D5F5E3;">Spring
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -329,7 +338,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"MarkDown","weight":1,"link":"http://wwww.fbxblog.xyz/tags/MarkDown/"},{"text":"JAVA","weight":1,"link":"http://wwww.fbxblog.xyz/tags/JAVA/"},{"text":"Spring，编程","weight":1,"link":"http://wwww.fbxblog.xyz/tags/Spring，编程/"},{"text":"VMWare","weight":1,"link":"http://wwww.fbxblog.xyz/tags/VMWare/"},{"text":"网络","weight":1,"link":"http://wwww.fbxblog.xyz/tags/网络/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"MarkDown","weight":1,"link":"http://wwww.fbxblog.xyz/tags/MarkDown/"},{"text":"JAVA编程","weight":1,"link":"http://wwww.fbxblog.xyz/tags/JAVA编程/"},{"text":"Spring","weight":1,"link":"http://wwww.fbxblog.xyz/tags/Spring/"},{"text":"VMWare","weight":1,"link":"http://wwww.fbxblog.xyz/tags/VMWare/"},{"text":"网络","weight":1,"link":"http://wwww.fbxblog.xyz/tags/网络/"}], {
         autoResize: true
     });
 </script>
@@ -340,9 +349,9 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">SharpSwordLi</a>基于
+            <a href="https://hexo.io/" target="_blank">blinkfox</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.<br>
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
@@ -351,7 +360,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
             
 			
-                <br>
+                
                 
                 <span id="busuanzi_container_site_pv">
                     <i class="fa fa-heart-o"></i>
