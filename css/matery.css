@@ -705,6 +705,10 @@ article .article-content .summary {
     margin-bottom: 6px;
     word-break: break-all;
 }
+article .summary {
+    height: 80px;
+    overflow: hidden;
+}
 
 article .article-content .publish-author {
     float: right;

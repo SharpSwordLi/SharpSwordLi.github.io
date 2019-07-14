@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
-<html lang="">
+<html lang="zh-CN">
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Archives, 欢迎来到我的博客">
-    <meta name="description" content="Archives | 欢迎来到我的博客">
+    <meta name="keywords" content="归档, 欢迎来到我的博客">
+    <meta name="description" content="归档 | 欢迎来到我的博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Archives | 欢迎来到我的博客</title>
+    <title>归档 | 欢迎来到我的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -25,10 +25,15 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
         
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -55,7 +60,7 @@
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -64,7 +69,7 @@
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -73,7 +78,7 @@
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -82,7 +87,7 @@
             
             <i class="fa fa-archive"></i>
             
-            <span>Archives</span>
+            <span>文章</span>
         </a>
     </li>
     
@@ -91,7 +96,7 @@
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于我</span>
         </a>
     </li>
     
@@ -100,13 +105,13 @@
             
             <i class="fa fa-address-book"></i>
             
-            <span>Friends</span>
+            <span>友情博客</span>
         </a>
     </li>
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
         </a>
     </li>
 
@@ -135,7 +140,7 @@
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -144,7 +149,7 @@
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -153,7 +158,7 @@
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -162,7 +167,7 @@
                 
                 <i class="fa fa-fw fa-archive"></i>
                 
-                Archives
+                文章
             </a>
         </li>
         
@@ -171,7 +176,7 @@
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于我
             </a>
         </li>
         
@@ -180,30 +185,27 @@
                 
                 <i class="fa fa-fw fa-address-book"></i>
                 
-                Friends
+                友情博客
             </a>
         </li>
         
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fa fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
         
     </ul>
 
     <div class="social-link">
+    <a href="https://github.com/SharpSwordLi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:15620606424@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=635414122" class="tooltipped" data-tooltip="QQ联系我: 635414122" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -214,62 +216,6 @@
             </div>
         </div>
 
-        
-        <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 </header>
@@ -320,7 +266,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
     let option = {
         title: {
             top: 0,
-            text: 'Post Calendar',
+            text: '文章日历',
             left: 'center',
             textStyle: {
                 color: '#3C4858'
@@ -366,12 +312,12 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 show: false
             },
             monthLabel: {
-                nameMap: 'en',
+                nameMap: 'cn',
                 fontSize: 11
             },
             dayLabel: {
                 formatter: '{start}  1st',
-                nameMap: 'en',
+                nameMap: 'cn',
                 fontSize: 11
             }
         }],
@@ -417,7 +363,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2019/07/13/SpringBoot单例注入多例/">
+                        <a href="/2019/07/13/springboot-dan-li-zhu-ru-duo-li/">
                             <div class="card-image">
                                 
                                 
@@ -429,8 +375,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="card-content article-content">
                             <div class="summary">
                                 
-                                    
-最近在学习redis集群，从最开始的安装，配置，到shards（分片）机制，sentinel(哨兵)机制，到最后的cluster（集群）机制。在测试哨兵机制的
+                                    最近在学习redis集群，在部署哨兵模式的时候，主节点宕机后客户端访问失败了，并没有实现高可用，最开始以为是，redis配置问题，经过一天的排查终于定位了原因
                                 
                             </div>
                             <div class="publish-info">
@@ -479,11 +424,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2019/07/12/VMWare的三种连接方式/">
+                        <a href="/2019/07/12/vmware-de-san-chong-lian-jie-fang-shi/">
                             <div class="card-image">
                                 
-                                
-                                <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="VMWare的连接方式">
+                                <img src="/source/img/vmware/0.jpg" class="responsive-img" alt="VMWare的连接方式">
                                 
                                 <span class="card-title">VMWare的连接方式</span>
                             </div>
@@ -491,8 +435,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                         <div class="card-content article-content">
                             <div class="summary">
                                 
-                                    
-VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习linux(为了学习linux,买一台服务器可是太浪费了).最早在没接触编程,之前就使用过.当时
+                                    前两天想用自己的笔记本连到同网络台式的虚拟机中,奈何不懂网络技术,研究了一天才磕磕绊绊的连接上,做个笔记,简单总结下VMWare的三种网络连接方式
                                 
                             </div>
                             <div class="publish-info">
@@ -541,7 +484,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2019/07/08/MarkDown语法/">
+                        <a href="/2019/07/08/markdown-yu-fa/">
                             <div class="card-image">
                                 
                                 
@@ -553,8 +496,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                         <div class="card-content article-content">
                             <div class="summary">
                                 
-                                    
-Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gru
+                                    第一天使用MarkDown记录语法
                                 
                             </div>
                             <div class="publish-info">
@@ -601,7 +543,7 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2019/07/08/SSLi的开场白/">
+                        <a href="/2019/07/08/ssli-de-kai-chang-bai/">
                             <div class="card-image">
                                 
                                 
@@ -613,8 +555,7 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
                         <div class="card-content article-content">
                             <div class="summary">
                                 
-                                    
-&nbsp;&nbsp;&nbsp;&nbsp;作为一个码农，天天接近15，6个小时坐在电脑前，与互联网打交道，我感觉应该在互联网找个安身之处。&nbsp;&
+                                    该博客仅为记录一个小白程序员的成长历程
                                 
                             </div>
                             <div class="publish-info">
@@ -653,6 +594,9 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
             
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">3k</span>
+            
 
             
 			
@@ -672,15 +616,19 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SharpSwordLi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:15620606424@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=635414122" class="tooltipped" data-tooltip="QQ联系我: 635414122" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -696,8 +644,8 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input" autofocus="">
         </div>
         <div id="searchResult"></div>

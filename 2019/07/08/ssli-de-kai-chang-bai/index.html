@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
-<html lang="">
+<html lang="zh-CN">
 
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="VMWare的连接方式, 欢迎来到我的博客">
+    <meta name="keywords" content="SSLi的开场白, 欢迎来到我的博客">
     <meta name="description" content="
-VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习linux(为了学习linux,买一台服务器可是太浪费了).最早在没接触编程,之前就使用过.当时是为了玩一款游戏,自己在虚拟机搭建服务器,将网游作为单机玩.跟着教程也是一步步搭">
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;作为一个码农，天天接近15，6个小时坐在电脑前，与互联网打交道，我感觉应该在互联网找个安身之处。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在我写这篇文章时，它一无所有。也希望今后我会好">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>VMWare的连接方式 | 欢迎来到我的博客</title>
+    <title>SSLi的开场白 | 欢迎来到我的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -26,10 +26,15 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     <style type="text/css">
         
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -56,7 +61,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             
             <i class="fa fa-home"></i>
             
-            <span>Index</span>
+            <span>首页</span>
         </a>
     </li>
     
@@ -65,7 +70,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             
             <i class="fa fa-tags"></i>
             
-            <span>Tags</span>
+            <span>标签</span>
         </a>
     </li>
     
@@ -74,7 +79,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             
             <i class="fa fa-bookmark"></i>
             
-            <span>Categories</span>
+            <span>分类</span>
         </a>
     </li>
     
@@ -83,7 +88,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             
             <i class="fa fa-archive"></i>
             
-            <span>Archives</span>
+            <span>文章</span>
         </a>
     </li>
     
@@ -92,7 +97,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             
             <i class="fa fa-user-circle-o"></i>
             
-            <span>About</span>
+            <span>关于我</span>
         </a>
     </li>
     
@@ -101,13 +106,13 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             
             <i class="fa fa-address-book"></i>
             
-            <span>Friends</span>
+            <span>友情博客</span>
         </a>
     </li>
     
     <li>
         <a id="toggleSearch" class="waves-effect waves-light">
-            <i id="searchIcon" class="mdi-action-search" title="Search"></i>
+            <i id="searchIcon" class="mdi-action-search" title="搜索"></i>
         </a>
     </li>
 
@@ -136,7 +141,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                 
                 <i class="fa fa-fw fa-home"></i>
                 
-                Index
+                首页
             </a>
         </li>
         
@@ -145,7 +150,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                 
                 <i class="fa fa-fw fa-tags"></i>
                 
-                Tags
+                标签
             </a>
         </li>
         
@@ -154,7 +159,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                 
                 <i class="fa fa-fw fa-bookmark"></i>
                 
-                Categories
+                分类
             </a>
         </li>
         
@@ -163,7 +168,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                 
                 <i class="fa fa-fw fa-archive"></i>
                 
-                Archives
+                文章
             </a>
         </li>
         
@@ -172,7 +177,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                 
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
-                About
+                关于我
             </a>
         </li>
         
@@ -181,30 +186,27 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                 
                 <i class="fa fa-fw fa-address-book"></i>
                 
-                Friends
+                友情博客
             </a>
         </li>
         
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fa fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
         
     </ul>
 
     <div class="social-link">
+    <a href="https://github.com/SharpSwordLi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:15620606424@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=635414122" class="tooltipped" data-tooltip="QQ联系我: 635414122" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -216,62 +218,6 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
         </div>
 
         
-        <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
     </nav>
 </header>
 
@@ -279,13 +225,13 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        VMWare的连接方式
+                        SSLi的开场白
                     </div>
                 </div>
             </div>
@@ -375,17 +321,9 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/VMWare/" target="_blank">
-                                <span class="chip bg-color">VMWare</span>
-                            </a>
-                        
-                            <a href="/tags/网络/" target="_blank">
-                                <span class="chip bg-color">网络</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -393,8 +331,8 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/踩坑实录/" class="post-category" target="_blank">
-                                踩坑实录
+                            <a href="/categories/个人记事/" class="post-category" target="_blank">
+                                个人记事
                             </a>
                         
                     </div>
@@ -404,15 +342,29 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-07-12
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-07-08
                 </div>
 
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        239
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        1 分
+                    </div>
+                    
                 
 				
 				
                     <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
                         <span id="busuanzi_value_page_pv"></span>
                     </div>
 				
@@ -422,53 +374,13 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习linux(为了学习linux,买一台服务器可是太浪费了).最早在没接触编程,之前就使用过.当时是为了玩一款游戏,自己在虚拟机搭建服务器,将网游作为单机玩.跟着教程也是一步步搭建起来了,但是现在想想也为当初的不求甚解,付出了代价</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;作为一个码农，天天接近15，6个小时坐在电脑前，与互联网打交道，我感觉应该在互联网找个安身之处。<br>&nbsp;&nbsp;&nbsp;&nbsp;在我写这篇文章时，它一无所有。也希望今后我会好好的善待它。  </p>
 </blockquote>
 <blockquote>
-<p>接下来介绍一下它们分别是：</p>
-<ol>
-<li>Bridged（桥接模式）</li>
-<li>NAT（网络地址转换模式）</li>
-<li>Host-Only（仅主机模式）</li>
-</ol>
-</blockquote>
-<hr>
-<h2 id="VMWare三种网络连接方式"><a href="#VMWare三种网络连接方式" class="headerlink" title="VMWare三种网络连接方式"></a>VMWare三种网络连接方式</h2><blockquote>
-<p>首先打开虚拟网络编辑器我们可以看见三个模式分别是VMnet0（桥接模式）、VMnet1（仅主机模式）、VMnet8（NAT模式),其中在VMnet1、VMnet8物理主机会为他们分配两块虚拟网卡</p>
-</blockquote>
-<p><img src="/img/vmware/host1.png" alt="编辑器"></p>
-<p><img src="/img/vmware/host2.png" alt="编辑器"></p>
-<h3 id="Bridged桥接模式"><a href="#Bridged桥接模式" class="headerlink" title="Bridged桥接模式"></a>Bridged桥接模式</h3><blockquote>
-<p>桥接模式就是使用物理主机网卡与虚拟机的虚拟网卡搭建网桥进行网路通信,类似于将物理主机作为交换机,这种方式完全可以将虚拟机当作网络中另一台”物理主机”  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;本博客为静态博客，也主要是为了我总结学习历程，踩坑实录，游戏经历等(最为一个游戏爱好者的操守)。以及督促以及养成总结，归纳的能力，最重要还有写文章的能力(正在博文写的我现在终于体会到了什么是书到用时方恨少)。  </p>
 </blockquote>
 <blockquote>
-<p>桥接模式需要物理主机与虚拟机处于同一网段,并且网关,与DNS与主机保持一致,这时虚拟主机即可实现上网功能,在该模式下,会占用局域网ip资源,并且网络中其他主机,与该物理主机相同,都具有访问该虚拟机的权限,所以该模式不安全</p>
-</blockquote>
-<p><img src="/img/vmware/host3.png" alt="Bridged桥接模式"></p>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><blockquote>
-<p>NAT : Network Address Translation，网络地址转换<br>NAT是一种比较安全的连接方式,它所有访问网络的数据都是由主机提供的,类似于该主机与主机中的虚拟机处于同一局域网下,所以一般从外界主机是访问不到该虚拟主机的,虚拟NAT设备与虚拟DHCP服务器一起连接在虚拟交换机VMnet8上，这样就实现了虚拟机联网。<br>VMnet8的作用是实现主机与虚拟机互相通信，可以通过禁用VMnet8网卡测试虚拟机与外网和本机的连接状态，测试结果为VMnet8网卡不影响虚拟机连接 Internet，但是与主机连接失败</p>
-</blockquote>
-<p><img src="/img/vmware/host4.png" alt="NAT模式"></p>
-<p><img src="/img/vmware/NAT8.png" alt="NAT模式"></p>
-<p><img src="/img/vmware/NAT9.png" alt="NAT模式"></p>
-<h3 id="Host-Only（仅主机模式）"><a href="#Host-Only（仅主机模式）" class="headerlink" title="Host-Only（仅主机模式）"></a>Host-Only（仅主机模式）</h3><blockquote>
-<p>该模式就是NAT模式去除了NAT网卡，使虚拟机只能和主机通信，不能与Internet通信。这种模式使用最少，至少我到现在没有使用过，该模式使用的是VMnet1网卡，如果想了解更多自行百度吧，我这里就不介绍过多了。</p>
-</blockquote>
-<h2 id="NAT模式的虚拟转发"><a href="#NAT模式的虚拟转发" class="headerlink" title="NAT模式的虚拟转发"></a>NAT模式的虚拟转发</h2><blockquote>
-<p>前两天想用自己的笔记本连到同网络台式的虚拟机中,因为某些原因，我台式与虚拟机使用NAT方式连接，当时也不太明白三种连接方式的区别，无意义的捣鼓一上午没什么进展，后来发现了端口转发功能，但是按照步骤一部部设置完了，结果还是连接不上，排查好久才发现上午把NAT模式的默认IP更改了，虚拟机广播的是196字段，我连接的是176字段，导致台式主机找不到虚拟机的IP，所以就去研究了下三种连接方式的区别。以此记录，下面我介绍下NAT模式的虚拟转发</p>
-</blockquote>
-<blockquote>
-<p>正常情况下NAT的连接模式是不允许外部计算机访问内部的虚拟计算机的，但是可以使用VMWare的端口转发功能来实现该功能，原理就是外部主机请求物理主机某一个端口，物理主机接到该端口的请求转发虚拟机对应的某个端口，实现起来相对也比较简单</p>
-</blockquote>
-<p><img src="/img/vmware/NAT1.png" alt="NAT模式"></p>
-<p><img src="/img/vmware/NAT2.jpg" alt="NAT模式"></p>
-<blockquote>
-<p>下图是在学习时使用了端口转发具体流程图</p>
-</blockquote>
-<p><img src="/img/vmware/all.png" alt="NAT模式"></p>
-<hr>
-<blockquote>
-<p>以上就是我对VMWare的连接方式简单理解，如果有错误的地方希望大家多多指正（来自一个小白的真心求教），谢谢</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;声明:该博客完全搬用hexo博客框架，以及 MOxFIVE 大佬，的 Yelee主题。作为后端工程师，前端没太多时间去研究(虽然现在后端我也是小白中的小白)，在这里诚挚感谢。</p>
 </blockquote>
 
             </div>
@@ -572,7 +484,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                         <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
                     </div>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                 </div>
             </div>
@@ -597,7 +509,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
 
 <div id="article-share">
     
-    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
     
 </div>
 
@@ -606,16 +518,38 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
             <div class="reprint">
                 <p>
                     <span class="reprint-tip">
-                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;Reprint please specify:
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
                     </span>
                     <a href="http://wwww.fbxblog.xyz" class="b-link-green">欢迎来到我的博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/07/12/VMWare的三种连接方式/" class="b-link-green">VMWare的连接方式</a>
+                    <a href="/2019/07/08/ssli-de-kai-chang-bai/" class="b-link-green">SSLi的开场白</a>
                 </p>
             </div>
         </div>
     </div>
 
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '64b87c733d4e85bab64d',
+        clientSecret: '5ff9a3a3f0a22bef523d4e6e9c6aa631d19731ee',
+        repo: 'blog-issue',
+        owner: 'SharpSwordLi',
+        admin: "SharpSwordLi",
+        id: '2019-07-08T14-51-23',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
     
 
     
@@ -633,59 +567,9 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/07/13/SpringBoot单例注入多例/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SpringBoot单例对象注入多例对象">
-                        
-                        <span class="card-title">SpringBoot单例对象注入多例对象</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">
-最近在学习redis集群，从最开始的安装，配置，到shards（分片）机制，sentinel(哨兵)机制，到最后的cluster（集群）机制。在测试哨兵机制的时候，踩了一个坑，经过一天的排查最后确定了问题，解决了问题，作为一个小白还是蛮开</div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/踩坑实录/" class="post-category" target="_blank">
-                                    踩坑实录
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/JAVA/" target="_blank">
-                        <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/Spring，编程/" target="_blank">
-                        <span class="chip bg-color">Spring，编程</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/07/08/MarkDown语法/">
+                <a href="/2019/07/08/markdown-yu-fa/">
                     <div class="card-image">
                         
                         
@@ -698,9 +582,9 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                     <div class="summary">
 Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档。Markdown 语言在 2004 由约翰·格鲁伯（英语：John Gruber）创建。Markdown 编写的文档可以导出 HTML 、Word、图像、</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -725,15 +609,91 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
             </div>
         </div>
         
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/08/ssli-de-kai-chang-bai/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="SSLi的开场白">
+                        
+                        <span class="card-title">SSLi的开场白</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">
+&nbsp;&nbsp;&nbsp;&nbsp;作为一个码农，天天接近15，6个小时坐在电脑前，与互联网打交道，我感觉应该在互联网找个安身之处。&nbsp;&nbsp;&nbsp;&nbsp;在我写这篇文章时，它一无所有。也希望今后我会好</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/个人记事/" class="post-category" target="_blank">
+                                    个人记事
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
     </div>
 </article>
 </div>
 
 
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 欢迎来到我的博客<br />'
+            + '作者: SharpSwordLi<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
     </div>
     <div class="col l3 hide-on-med-and-down">
         <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
     </div>
@@ -790,6 +750,9 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
             <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
             
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">3k</span>
+            
 
             
 			
@@ -809,15 +772,19 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SharpSwordLi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
 
 
-    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+
+    <a href="mailto:15620606424@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fa fa-envelope-open"></i>
     </a>
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=635414122" class="tooltipped" data-tooltip="QQ联系我: 635414122" data-position="top" data-delay="50">
         <i class="fa fa-qq"></i>
     </a>
 
@@ -833,8 +800,8 @@ Markdown 是一种轻量级标记语言，它允许人们使用易读易写的�
 <div id="searchModal" class="modal">
     <div class="modal-content">
         <div class="search-header">
-            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
                    class="search-input" autofocus="">
         </div>
         <div id="searchResult"></div>
