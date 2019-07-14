@@ -15,7 +15,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>VMWare的连接方式 | 欢迎来到我的博客</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
@@ -393,39 +393,39 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
 </ol>
 </blockquote>
 <hr>
-<h2 id="VMWare三种网络连接方式"><a href="#VMWare三种网络连接方式" class="headerlink" title="VMWare三种网络连接方式"></a>VMWare三种网络连接方式</h2><blockquote>
+<h2 id="一-VMWare三种网络连接方式"><a href="#一-VMWare三种网络连接方式" class="headerlink" title="一.VMWare三种网络连接方式"></a>一.VMWare三种网络连接方式</h2><blockquote>
 <p>首先打开虚拟网络编辑器我们可以看见三个模式分别是VMnet0（桥接模式）、VMnet1（仅主机模式）、VMnet8（NAT模式),其中在VMnet1、VMnet8物理主机会为他们分配两块虚拟网卡</p>
 </blockquote>
-<p><img src="/img/vmware/host1.png" alt="编辑器"></p>
-<p><img src="/img/vmware/host2.png" alt="编辑器"></p>
-<h3 id="Bridged桥接模式"><a href="#Bridged桥接模式" class="headerlink" title="Bridged桥接模式"></a>Bridged桥接模式</h3><blockquote>
+<p><img src="/img/vmware/host1.png" alt></p>
+<p><img src="/img/vmware/host2.png" alt></p>
+<h3 id="1-Bridged桥接模式"><a href="#1-Bridged桥接模式" class="headerlink" title="1.Bridged桥接模式"></a>1.Bridged桥接模式</h3><blockquote>
 <p>桥接模式就是使用物理主机网卡与虚拟机的虚拟网卡搭建网桥进行网路通信,类似于将物理主机作为交换机,这种方式完全可以将虚拟机当作网络中另一台”物理主机”  </p>
 </blockquote>
 <blockquote>
 <p>桥接模式需要物理主机与虚拟机处于同一网段,并且网关,与DNS与主机保持一致,这时虚拟主机即可实现上网功能,在该模式下,会占用局域网ip资源,并且网络中其他主机,与该物理主机相同,都具有访问该虚拟机的权限,所以该模式不安全</p>
 </blockquote>
 <p><img src="/img/vmware/host3.png" alt="Bridged桥接模式"></p>
-<h3 id="NAT模式"><a href="#NAT模式" class="headerlink" title="NAT模式"></a>NAT模式</h3><blockquote>
+<h3 id="2-NAT模式"><a href="#2-NAT模式" class="headerlink" title="2.NAT模式"></a>2.NAT模式</h3><blockquote>
 <p>NAT : Network Address Translation，网络地址转换<br>NAT是一种比较安全的连接方式,它所有访问网络的数据都是由主机提供的,类似于该主机与主机中的虚拟机处于同一局域网下,所以一般从外界主机是访问不到该虚拟主机的,虚拟NAT设备与虚拟DHCP服务器一起连接在虚拟交换机VMnet8上，这样就实现了虚拟机联网。<br>VMnet8的作用是实现主机与虚拟机互相通信，可以通过禁用VMnet8网卡测试虚拟机与外网和本机的连接状态，测试结果为VMnet8网卡不影响虚拟机连接 Internet，但是与主机连接失败</p>
 </blockquote>
 <p><img src="/img/vmware/host4.png" alt="NAT模式"></p>
-<p><img src="/img/vmware/NAT8.png" alt="NAT模式"></p>
-<p><img src="/img/vmware/NAT9.png" alt="NAT模式"></p>
-<h3 id="Host-Only（仅主机模式）"><a href="#Host-Only（仅主机模式）" class="headerlink" title="Host-Only（仅主机模式）"></a>Host-Only（仅主机模式）</h3><blockquote>
+<p><img src="/img/vmware/NAT8.png" alt="NAT模式测试"></p>
+<p><img src="/img/vmware/NAT9.png" alt="NAT模式测试"></p>
+<h3 id="3-Host-Only（仅主机模式）"><a href="#3-Host-Only（仅主机模式）" class="headerlink" title="3.Host-Only（仅主机模式）"></a>3.Host-Only（仅主机模式）</h3><blockquote>
 <p>该模式就是NAT模式去除了NAT网卡，使虚拟机只能和主机通信，不能与Internet通信。这种模式使用最少，至少我到现在没有使用过，该模式使用的是VMnet1网卡，如果想了解更多自行百度吧，我这里就不介绍过多了。</p>
 </blockquote>
-<h2 id="NAT模式的虚拟转发"><a href="#NAT模式的虚拟转发" class="headerlink" title="NAT模式的虚拟转发"></a>NAT模式的虚拟转发</h2><blockquote>
+<h2 id="二-NAT模式的虚拟转发"><a href="#二-NAT模式的虚拟转发" class="headerlink" title="二.NAT模式的虚拟转发"></a>二.NAT模式的虚拟转发</h2><blockquote>
 <p>前两天想用自己的笔记本连到同网络台式的虚拟机中,因为某些原因，我台式与虚拟机使用NAT方式连接，当时也不太明白三种连接方式的区别，无意义的捣鼓一上午没什么进展，后来发现了端口转发功能，但是按照步骤一部部设置完了，结果还是连接不上，排查好久才发现上午把NAT模式的默认IP更改了，虚拟机广播的是196字段，我连接的是176字段，导致台式主机找不到虚拟机的IP，所以就去研究了下三种连接方式的区别。以此记录，下面我介绍下NAT模式的虚拟转发</p>
 </blockquote>
 <blockquote>
 <p>正常情况下NAT的连接模式是不允许外部计算机访问内部的虚拟计算机的，但是可以使用VMWare的端口转发功能来实现该功能，原理就是外部主机请求物理主机某一个端口，物理主机接到该端口的请求转发虚拟机对应的某个端口，实现起来相对也比较简单</p>
 </blockquote>
-<p><img src="/img/vmware/NAT1.png" alt="NAT模式"></p>
-<p><img src="/img/vmware/NAT2.jpg" alt="NAT模式"></p>
+<p><img src="/img/vmware/NAT1.png" alt="NAT模式端口转发"></p>
+<p><img src="/img/vmware/NAT2.jpg" alt="NAT模式端口转发"></p>
 <blockquote>
 <p>下图是在学习时使用了端口转发具体流程图</p>
 </blockquote>
-<p><img src="/img/vmware/all.png" alt="NAT模式"></p>
+<p><img src="/img/vmware/all.png" alt="流程图"></p>
 <hr>
 <blockquote>
 <p>以上就是我对VMWare的连接方式简单理解，如果有错误的地方希望大家多多指正（来自一个小白的真心求教），谢谢</p>
