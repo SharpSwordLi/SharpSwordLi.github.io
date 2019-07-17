@@ -348,7 +348,7 @@ $(function () {
         volume: Number('0.7'),
         listFolded: 'false' === 'true',
         listMaxHeight: '',
-        audio: JSON.parse('[{"name":"就决定是你了","artist":"松本梨香","url":"/medias/musics/就决定是你了.mp3","cover":"/medias/musics/1.png"},{"name":"Take me hand","artist":"DAISHI DANCE,Cecile Corbel","url":"http://static.blinkfox.com/music2.mp3","cover":"http://static.blinkfox.com/music-cover2.png"},{"name":"Shape of You","artist":"J.Fla","url":"http://static.blinkfox.com/music3.mp3","cover":"http://static.blinkfox.com/music-cover3.png"}]')
+        audio: JSON.parse('[{"name":"就决定是你了","artist":"松本梨香","url":"/medias/musics/就决定是你了.mp3","cover":"/medias/musics/1.jpg"},{"name":"我曾","artist":"隔壁老樊","url":"/medias/musics/我曾.mp3","cover":"/medias/musics/2.jpg"},{"name":"The Dawn","artist":"Mike Zhou","url":"/medias/musics/The Dawn.mp3","cover":"/medias/musics/3.jpg"}]')
     });
 });
 </script>
@@ -373,6 +373,61 @@ $(function () {
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/07/17/qian-tan-hashmap/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="浅谈HashMap">
+                            
+                            <span class="card-title">浅谈HashMap</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                前几天被问到了怎么理解HashMap，虽然最开始学习时就接触过，这么长时间都忘记了，今天写篇博客记录一下，以后忘记也方便查询。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/基础语法/" class="post-category" target="_blank">
+                                    基础语法
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/JAVA编程/" target="_blank">
+                            <span class="chip bg-color">JAVA编程</span>
+                        </a>
+                        
+                        <a href="/tags/HashMap/" target="_blank">
+                            <span class="chip bg-color">HashMap</span>
+                        </a>
+                        
+                        <a href="/tags/源码/" target="_blank">
+                            <span class="chip bg-color">源码</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -418,6 +473,10 @@ $(function () {
                         
                         <a href="/tags/Spring/" target="_blank">
                             <span class="chip bg-color">Spring</span>
+                        </a>
+                        
+                        <a href="/tags/redis/" target="_blank">
+                            <span class="chip bg-color">redis</span>
                         </a>
                         
                     </div>
@@ -577,11 +636,11 @@ $(function () {
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3k</span>
+                <span class="white-color">7.4k</span>
             
 
             
-			
+			<!-- 
                 
                 
                 <span id="busuanzi_container_site_pv">
@@ -595,7 +654,7 @@ $(function () {
                     次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
                 </span>
                 
-            
+             -->
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/SharpSwordLi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">

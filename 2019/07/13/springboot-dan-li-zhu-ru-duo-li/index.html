@@ -241,80 +241,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-</style>
-<div class="row">
-    <div class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -329,6 +259,10 @@
                         
                             <a href="/tags/Spring/" target="_blank">
                                 <span class="chip bg-color">Spring</span>
+                            </a>
+                        
+                            <a href="/tags/redis/" target="_blank">
+                                <span class="chip bg-color">redis</span>
                             </a>
                         
                     </div>
@@ -358,14 +292,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        92
+                        970
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        3 分
                     </div>
                     
                 
@@ -385,6 +319,72 @@
 <p>最近在学习redis集群，从最开始的安装，配置，到shards（分片）机制，sentinel(哨兵)机制，到最后的cluster（集群）机制。在测试哨兵机制的时候，踩了一个坑，经过一天的排查最后确定了问题，解决了问题，作为一个小白还是蛮开心的。话不说多直接上问题。</p>
 </blockquote>
 <p><img src="/img/20190713/p1.png" alt="异常"></p>
+<p>&emsp;&emsp;首先先介绍下业务场景，在搭建好一主两从的redis哨兵模式后，启动了tomcat服务器，访问业务以及缓存服务，未发生任何异常，但是在我宕掉主机后从机生效，在后台查看redis主从信息没有任何问题，但是前台再次访问业务时，并无数据显示，并在tomcat服务器控制台中输出了，该异常<code>redis.clients.jedis.exceptions.JedisConnectionException: Unexpected end of stream.</code>，从异常上看是redis运行时抛出的，并且异常信息中拿不到什么有用的信息，因为初次接触redis，最开始我一直在找redis的配置与逻辑上的问题，测试好久没得到结论，上网查了好久也尝试了很多网上的办法，可惜都没有生效。<br>&emsp;&emsp;经过一下午测试，后来发现之前写的测试类可以正常访问我的redis服务器，最终把问题锁定在了业务代码逻辑上。</p>
+<pre class="line-numbers language-java"><code class="language-java">   <span class="token comment" spellcheck="true">// 该类写在service层</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> Jedis jedis<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//这是我的业务逻辑代码，该方法主要是从数据库查询类目表</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>EasyUI_Tree<span class="token operator">></span> <span class="token function">findItemCatByCache</span><span class="token punctuation">(</span>Long parentId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//定义一个List接收返回数据</span>
+        List<span class="token operator">&lt;</span>EasyUI_Tree<span class="token operator">></span> itemCats <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//定义redis key值</span>
+        String key <span class="token operator">=</span> <span class="token string">"ITEM_CAT_"</span> <span class="token operator">+</span> parentId<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//从redis中读取值</span>
+        String result <span class="token operator">=</span> jedis<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//输出hash值</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span>jedis<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//判断结果是否为空</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>StringUtils<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//为空查询数据库，并赋值</span>
+            itemCats <span class="token operator">=</span> <span class="token function">findItemCatByParentId</span><span class="token punctuation">(</span>parentId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//将缓存存入reids</span>
+            jedis<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> JsonUtil<span class="token punctuation">.</span><span class="token function">toJSON</span><span class="token punctuation">(</span>itemCats<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//不为空直接处理json结果转为对象，并赋值</span>
+            itemCats <span class="token operator">=</span> JsonUtil<span class="token punctuation">.</span><span class="token function">toObject</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span>ArrayList<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">//返回该值</span>
+        <span class="token keyword">return</span> itemCats<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;&emsp;该代码从表面看起来没有什么问题，这也是我这次踩坑的原因，其中sevice层在spring容器中是单例的，而jedis是一个多例对象，问题来了，spring的bean对象是在容器初始化时创建的其中service对象是单例的，导致在建立sercive对象时，已经为创建一个jedis对象并进行了DI（依赖注入），所以在我们进行我们的业务逻辑时，一直使用的是同一个对象，我对该方法jedis的hash值进行了输出，该对象hash相同（hash相同并不完全能证明他们是同一对象，如果大佬有更好的比较方式请指教），所以最后抛出了上述异常，下面看看解决方案。</p>
+<blockquote>
+<p>其实原因知道了，解决方案就好办了，下面贴出代码进行参考</p>
+</blockquote>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token annotation punctuation">@Service</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ItemCatServiceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">ItemCatService</span><span class="token punctuation">,</span>BeanFactoryAware <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> BeanFactory factory<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Autowired</span>
+    <span class="token keyword">private</span> ItemCatMapper itemCatMapper<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>EasyUI_Tree<span class="token operator">></span> <span class="token function">findItemCatByCache</span><span class="token punctuation">(</span>Long parentId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        List<span class="token operator">&lt;</span>EasyUI_Tree<span class="token operator">></span> itemCats <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//给定redis中key值</span>
+        String key <span class="token operator">=</span> <span class="token string">"ITEM_CAT_"</span> <span class="token operator">+</span> parentId<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//从spring工厂中获取jedis对象</span>
+        Jedis jedis <span class="token operator">=</span> factory<span class="token punctuation">.</span><span class="token function">getBean</span><span class="token punctuation">(</span><span class="token string">"jedis"</span><span class="token punctuation">,</span>Jedis<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        log<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"{}"</span><span class="token punctuation">,</span>jedis<span class="token punctuation">.</span><span class="token function">hashCode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String result <span class="token operator">=</span> jedisCluster<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>StringUtils<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            itemCats <span class="token operator">=</span> <span class="token function">findItemCatByParentId</span><span class="token punctuation">(</span>parentId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            jedisCluster<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> JsonUtil<span class="token punctuation">.</span><span class="token function">toJSON</span><span class="token punctuation">(</span>itemCats<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            itemCats <span class="token operator">=</span> JsonUtil<span class="token punctuation">.</span><span class="token function">toObject</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span>ArrayList<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> itemCats<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//继承BeanFactoryAware接口重写</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setBeanFactory</span><span class="token punctuation">(</span>BeanFactory beanFactory<span class="token punctuation">)</span> <span class="token keyword">throws</span> BeansException <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>factory<span class="token operator">=</span> beanFactory<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>&emsp;&emsp;从上面代码能看出这次我们每次执行是从spring容器中动态获取的bean对象，所以每次得到的都是不同的bean对象。<br>&emsp;&emsp;其实redis的哨兵模式在实际应用中使用的并不多，但是Spring中单例对象注入多例对象是很常见的。这次踩坑，也让自己以后能注意到这个问题，以此记录。</p>
+<blockquote>
+<p>文章仅供参考，如有不正确的地方或者不同意见请联系我并指正。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -568,40 +568,38 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/07/13/springboot-dan-li-zhu-ru-duo-li/">
+                <a href="/2019/07/17/qian-tan-hashmap/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SpringBoot单例对象注入多例对象">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="浅谈HashMap">
                         
-                        <span class="card-title">SpringBoot单例对象注入多例对象</span>
+                        <span class="card-title">浅谈HashMap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">
-最近在学习redis集群，从最开始的安装，配置，到shards（分片）机制，sentinel(哨兵)机制，到最后的cluster（集群）机制。在测试哨兵机制的时候，踩了一个坑，经过一天的排查最后确定了问题，解决了问题，作为一个小白还是蛮开</div>
+                    <div class="summary">一. 什么是HashMap
+简单来说HashMap时基于哈希值，计算索引值进行存取数据的Map集合。底层利用了数组，链表，红黑树结构。该类继承了AbstractMap&lt;K,V&gt;,实现了Map&lt;K,V&gt;，Cloneab</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-17
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/踩坑实录/" class="post-category" target="_blank">
-                                    踩坑实录
+                            <a href="/categories/基础语法/" class="post-category" target="_blank">
+                                    基础语法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -609,8 +607,12 @@
                         <span class="chip bg-color">JAVA编程</span>
                     </a>
                     
-                    <a href="/tags/Spring/" target="_blank">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/HashMap/" target="_blank">
+                        <span class="chip bg-color">HashMap</span>
+                    </a>
+                    
+                    <a href="/tags/源码/" target="_blank">
+                        <span class="chip bg-color">源码</span>
                     </a>
                     
                 </div>
@@ -709,53 +711,6 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
     });
 </script>
 
-    </div>
-    <div class="col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-    });
-</script>
     
 
 </main>
@@ -770,11 +725,11 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">3k</span>
+                <span class="white-color">7.4k</span>
             
 
             
-			
+			<!-- 
                 
                 
                 <span id="busuanzi_container_site_pv">
@@ -788,7 +743,7 @@ VMWare是一款桌面虚拟化的产品,作为程序猿来说常用作在学习l
                     次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
                 </span>
                 
-            
+             -->
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
     <a href="https://github.com/SharpSwordLi" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
